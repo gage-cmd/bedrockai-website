@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedrock AI — Stop Losing Revenue</title>
+<meta name="description" content="Local businesses lose $5,000–$15,000 every month to missed calls, slow follow-up, and gaps they can't see from the inside. Bedrock AI finds the leak and fixes it.">
+
+<meta property="og:title" content="Bedrock AI — Stop Losing Revenue">
+<meta property="og:description" content="We find where your business is leaking revenue — missed calls, slow follow-up, dead leads — and plug it. Book a free discovery call.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getbedrockai.com">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪨</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy: #0A1628;
+    --navy-light: #0F2036;
+    --navy-lighter: #142943;
+    --blue: #2E75B6;
+    --blue-bright: #4A96DB;
+    --white: #FFFFFF;
+    --off-white: rgba(255,255,255,0.86);
+    --muted: rgba(255,255,255,0.6);
+    --faint: rgba(255,255,255,0.38);
+    --border: rgba(255,255,255,0.1);
+    --glass: rgba(255,255,255,0.04);
+    --glass-hover: rgba(255,255,255,0.07);
+    --radius: 16px;
+    --max-w: 1180px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg{ display:block; max-width:100%; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+
+  .wrap{
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  section{ position:relative; }
+
+  /* ===== Background texture ===== */
+  .grid-bg{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    pointer-events:none;
+  }
+
+  .glow{
+    position:fixed;
+    z-index:-1;
+    border-radius:50%;
+    filter: blur(120px);
+    pointer-events:none;
+  }
+  .glow-1{
+    width:700px; height:700px;
+    top:-250px; left:-150px;
+    background: radial-gradient(circle, rgba(46,117,182,0.35), transparent 70%);
+  }
+  .glow-2{
+    width:600px; height:600px;
+    top:200px; right:-200px;
+    background: radial-gradient(circle, rgba(74,150,219,0.2), transparent 70%);
+  }
+
+  /* ===== Nav ===== */
+  header{
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background: rgba(10,22,40,0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: background .3s var(--ease);
+  }
+
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 18px 32px;
+    max-width: var(--max-w);
+    margin:0 auto;
+  }
+
+  .logo{
+    font-weight:800;
+    font-size: 1.25rem;
+    letter-spacing: -0.02em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .logo .dot{
+    width:8px; height:8px;
+    border-radius:2px;
+    background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+    display:inline-block;
+  }
+
+  .nav-links{
+    display:flex;
+    align-items:center;
+    gap:36px;
+  }
+  .nav-links a{
+    font-size:0.92rem;
+    font-weight:500;
+    color: var(--off-white);
+    transition: color .2s;
+    position:relative;
+  }
+  .nav-links a:hover{ color: var(--white); }
+  .nav-links a::after{
+    content:'';
+    position:absolute;
+    left:0; bottom:-6px;
+    width:0; height:1px;
+    background: var(--blue-bright);
+    transition: width .25s var(--ease);
+  }
+  .nav-links a:hover::after{ width:100%; }
+
+  .nav-cta{
+    display: inline-flex;
+    align-items:center;
+    gap:24px;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight:600;
+    font-size:0.92rem;
+    transition: all .25s var(--ease);
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(46,117,182,0.35);
+  }
+  .btn-primary:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(46,117,182,0.5);
+  }
+  .btn-secondary{
+    background: var(--glass);
+    color: var(--white);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover{
+    background: var(--glass-hover);
+    border-color: rgba(255,255,255,0.2);
+  }
+  .btn-lg{ padding:16px 34px; font-size:1rem; }
+
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    padding:8px;
+  }
+  .hamburger span{
+    width:22px; height:2px;
+    background: var(--white);
+    border-radius:2px;
+    transition: all .3s var(--ease);
+  }
+
+  .mobile-menu{
+    display:none;
+    position:fixed;
+    top:64px;
+    left:0; right:0;
+    background: var(--navy);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 32px 32px;
+    flex-direction:column;
+    gap:22px;
+    z-index:99;
+    transform: translateY(-12px);
+    opacity:0;
+    pointer-events:none;
+    transition: all .3s var(--ease);
+  }
+  .mobile-menu.open{
+    transform: translateY(0);
+    opacity:1;
+    pointer-events:all;
+  }
+  .mobile-menu a{ font-size:1.05rem; font-weight:500; }
+
+  /* ===== Hero ===== */
+  .hero{
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 140px 32px 100px;
+    position:relative;
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    font-size:0.82rem;
+    font-weight:600;
+    color: var(--blue-bright);
+    letter-spacing:0.02em;
+    margin-bottom:28px;
+  }
+  .eyebrow .pulse{
+    width:7px; height:7px;
+    border-radius:50%;
+    background: var(--blue-bright);
+    box-shadow: 0 0 0 0 rgba(74,150,219,0.6);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(74,150,219,0.5); }
+    70%{ box-shadow: 0 0 0 8px rgba(74,150,219,0); }
+    100%{ box-shadow: 0 0 0 0 rgba(74,150,219,0); }
+  }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    font-weight:800;
+    letter-spacing:-0.03em;
+    line-height:1.08;
+    max-width: 920px;
+    margin-bottom: 26px;
+  }
+  .hero h1 .grad{
+    background: linear-gradient(135deg, var(--blue-bright), #8fc4ec);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero p{
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--muted);
+    max-width: 640px;
+    margin-bottom: 42px;
+  }
+
+  .hero-btns{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom: 80px;
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:36px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    color: var(--faint);
+    font-size:0.78rem;
+    animation: floaty 2.4s ease-in-out infinite;
+  }
+  @keyframes floaty{
+    0%,100%{ transform:translate(-50%,0); }
+    50%{ transform:translate(-50%,8px); }
+  }
+
+  .float-shape{
+    position:absolute;
+    border-radius: 30% 70% 60% 40% / 40% 40% 60% 60%;
+    filter: blur(2px);
+    opacity:0.5;
+    z-index:-1;
+    animation: drift 14s ease-in-out infinite;
+  }
+  .shape-a{
+    width:180px; height:180px;
+    top:18%; left:8%;
+    border: 1px solid rgba(74,150,219,0.35);
+    background: linear-gradient(135deg, rgba(46,117,182,0.15), transparent);
+  }
+  .shape-b{
+    width:120px; height:120px;
+    top:65%; right:10%;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent);
+    animation-delay: -6s;
+  }
+  @keyframes drift{
+    0%,100%{ transform: translate(0,0) rotate(0deg); }
+    50%{ transform: translate(20px,-30px) rotate(20deg); }
+  }
+
+  /* ===== Section headers ===== */
+  .section{ padding: 130px 0; }
+  .section-tag{
+    display:block;
+    text-align:center;
+    font-size:0.82rem;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color: var(--blue-bright);
+    margin-bottom:16px;
+  }
+  .section-title{
+    text-align:center;
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    max-width:760px;
+    margin: 0 auto 20px;
+  }
+  .section-sub{
+    text-align:center;
+    color: var(--muted);
+    max-width:600px;
+    margin: 0 auto 70px;
+    font-size:1.05rem;
+  }
+
+  /* fade-up utility */
+  .reveal{
+    opacity:0;
+    transform: translateY(28px);
+    transition: opacity .7s var(--ease), transform .7s var(--ease);
+  }
+  .reveal.visible{
+    opacity:1;
+    transform:none;
+  }
+
+  /* ===== Problem cards ===== */
+  .card-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:24px;
+  }
+  .card{
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 30px;
+    backdrop-filter: blur(10px);
+    transition: transform .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+  }
+  .card:hover{
+    transform: translateY(-6px);
+    border-color: rgba(74,150,219,0.4);
+    background: var(--glass-hover);
+  }
+  .card-icon{
+    width:52px; height:52px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    background: linear-gradient(135deg, rgba(46,117,182,0.25), rgba(46,117,182,0.05));
+    border: 1px solid rgba(74,150,219,0.3);
+    margin-bottom:22px;
+  }
+  .card h3{
+    font-size:1.2rem;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+  .card p{
+    color: var(--muted);
+    font-size:0.96rem;
+  }
+
+  /* ===== How it works ===== */
+  .steps{
+    position:relative;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:32px;
+    counter-reset: step;
+  }
+  .steps::before{
+    content:'';
+    position:absolute;
+    top:26px;
+    left:calc(16.66% + 10px);
+    right:calc(16.66% + 10px);
+    height:1px;
+    background: linear-gradient(90deg, transparent, rgba(74,150,219,0.5), transparent);
+  }
+  .step{ position:relative; text-align:center; }
+  .step-num{
+    width:52px; height:52px;
+    border-radius:50%;
+    background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:1.15rem;
+    margin: 0 auto 26px;
+    box-shadow: 0 0 0 6px var(--navy), 0 6px 20px rgba(46,117,182,0.4);
+    position:relative;
+    z-index:2;
+  }
+  .step h3{
+    font-size:1.25rem;
+    font-weight:700;
+    margin-bottom:12px;
+  }
+  .step p{
+    color: var(--muted);
+    font-size:0.96rem;
+    max-width:320px;
+    margin:0 auto;
+  }
+
+  /* ===== Metrics ===== */
+  .metrics{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:24px;
+  }
+  .metric{
+    text-align:center;
+    padding: 40px 20px;
+    border-radius: var(--radius);
+    background: var(--glass);
+    border: 1px solid var(--border);
+  }
+  .metric-num{
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight:800;
+    background: linear-gradient(135deg, var(--white), var(--blue-bright));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:10px;
+    letter-spacing:-0.02em;
+  }
+  .metric-label{
+    color: var(--muted);
+    font-size:0.9rem;
+  }
+
+  /* ===== Industries ===== */
+  .industry-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:18px;
+  }
+  .industry-card{
+    padding: 26px 22px;
+    border-radius: 14px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    transition: all .25s var(--ease);
+  }
+  .industry-card:hover{
+    background: var(--glass-hover);
+    border-color: rgba(74,150,219,0.4);
+    transform: translateY(-4px);
+  }
+  .industry-card h4{
+    font-size:1.02rem;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .industry-card p{
+    font-size:0.85rem;
+    color: var(--muted);
+  }
+
+  /* ===== Different section ===== */
+  .diff-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:28px;
+  }
+  .diff-col{
+    padding: 40px 36px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .diff-col.no{
+    background: rgba(255,255,255,0.02);
+  }
+  .diff-col.yes{
+    background: linear-gradient(160deg, rgba(46,117,182,0.14), rgba(46,117,182,0.02));
+    border-color: rgba(74,150,219,0.35);
+  }
+  .diff-label{
+    display:inline-block;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:100px;
+    margin-bottom:20px;
+  }
+  .diff-col.no .diff-label{ background:rgba(255,255,255,0.08); color: var(--muted); }
+  .diff-col.yes .diff-label{ background:rgba(74,150,219,0.25); color: var(--blue-bright); }
+  .diff-col p{
+    font-size:1.08rem;
+    line-height:1.7;
+  }
+  .diff-col.no p{ color: var(--off-white); }
+  .diff-col.yes p{ color: var(--white); font-weight:500; }
+
+  /* ===== Owner ===== */
+  .owner{
+    max-width: 780px;
+    margin: 0 auto;
+    text-align:center;
+  }
+  .owner p{
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--off-white);
+    line-height:1.8;
+  }
+  .owner-badge{
+    width:64px; height:64px;
+    border-radius:50%;
+    background: linear-gradient(135deg, var(--blue-bright), var(--blue));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.6rem;
+    margin: 0 auto 32px;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-list{
+    max-width: 760px;
+    margin: 0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .faq-item{
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--glass);
+    overflow:hidden;
+  }
+  .faq-q{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 22px 26px;
+    font-weight:600;
+    font-size:1rem;
+    text-align:left;
+  }
+  .faq-icon{
+    flex-shrink:0;
+    width:24px; height:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--blue-bright);
+    font-size:1.3rem;
+    transition: transform .3s var(--ease);
+  }
+  .faq-item.open .faq-icon{ transform: rotate(45deg); }
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition: max-height .35s var(--ease);
+  }
+  .faq-a-inner{
+    padding: 0 26px 24px;
+    color: var(--muted);
+    font-size:0.96rem;
+    line-height:1.7;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section{
+    text-align:center;
+    padding: 130px 32px;
+    position:relative;
+  }
+  .cta-box{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 70px 40px;
+    border-radius: 28px;
+    background: linear-gradient(160deg, rgba(46,117,182,0.18), rgba(15,32,54,0.4));
+    border: 1px solid rgba(74,150,219,0.3);
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-box h2{
+    font-size: clamp(1.9rem, 4vw, 2.7rem);
+    font-weight:800;
+    letter-spacing:-0.02em;
+    margin-bottom:18px;
+  }
+  .cta-box p{
+    color: var(--muted);
+    font-size:1.08rem;
+    margin-bottom:36px;
+  }
+
+  /* ===== Footer ===== */
+  footer{
+    border-top: 1px solid var(--border);
+    padding: 50px 32px 40px;
+  }
+  .footer-inner{
+    max-width: var(--max-w);
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .footer-left{ display:flex; flex-direction:column; gap:8px; }
+  .footer-left .logo{ margin-bottom:4px; }
+  .footer-left a{ color: var(--muted); font-size:0.9rem; }
+  .footer-left a:hover{ color: var(--blue-bright); }
+  .footer-links{ display:flex; gap:28px; }
+  .footer-links a{ color: var(--muted); font-size:0.88rem; }
+  .footer-links a:hover{ color: var(--white); }
+  .footer-copy{
+    text-align:center;
+    color: var(--faint);
+    font-size:0.82rem;
+    margin-top:36px;
+    padding-top:28px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 900px){
+    .card-grid{ grid-template-columns: 1fr; }
+    .steps{ grid-template-columns: 1fr; gap:56px; }
+    .steps::before{ display:none; }
+    .metrics{ grid-template-columns: repeat(2,1fr); }
+    .industry-grid{ grid-template-columns: repeat(2, 1fr); }
+    .diff-grid{ grid-template-columns: 1fr; }
+    .nav-links{ display:none; }
+    .nav-cta .btn-primary{ display:none; }
+    .hamburger{ display:flex; }
+    .mobile-menu{ display:flex; }
+    .section{ padding: 90px 0; }
+  }
+  @media (max-width: 520px){
+    .metrics{ grid-template-columns: 1fr 1fr; }
+    .industry-grid{ grid-template-columns: 1fr; }
+    .wrap{ padding: 0 20px; }
+    .hero{ padding: 120px 20px 80px; }
+    .cta-box{ padding: 50px 24px; }
+    nav{ padding: 16px 20px; }
+    .logo{ font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+
+<header>
+  <nav>
+    <a href="#top" class="logo"><span class="dot"></span>Bedrock AI</a>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#results">Results</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="nav-cta">
+      <a href="https://cal.com/gage-dorris-7eacni/free-revenue-audit" target="_blank" rel="noopener" class="btn btn-primary">Book a Free Call</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#results">Results</a>
+    <a href="#industries">Industries</a>
+    <a href="#about">About</a>
+    <a href="https://cal.com/gage-dorris-7eacni/free-revenue-audit" target="_blank" rel="noopener" class="btn btn-primary" style="justify-content:center;">Book a Free Call</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="float-shape shape-a"></div>
+    <div class="float-shape shape-b"></div>
+    <span class="eyebrow"><span class="pulse"></span>For local businesses ready to stop the bleeding</span>
+    <h1>Your Business Is Leaking Revenue. <span class="grad">We Find It and Fix It.</span></h1>
+    <p>Local businesses lose $5,000–$15,000 every month to missed calls, slow follow-up, and operational gaps they can't see from the inside. We make those leaks visible, then we plug them.</p>
+    <div class="hero-btns">
+      <a href="https://cal.com/gage-dorris-7eacni/free-revenue-audit" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book a Free Discovery Call</a>
+      <a href="#how-it-works" class="btn btn-secondary btn-lg">See How It Works</a>
+    </div>
+    <div class="scroll-cue">
+      <span>Scroll to explore</span>
+      <span>↓</span>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section" id="problem">
+    <div class="wrap">
+      <span class="section-tag reveal">The Problem</span>
+      <h2 class="section-title reveal">The Revenue You Never See Leaving</h2>
+      <p class="section-sub reveal">It doesn't show up on a P&amp;L line. It just quietly disappears, month after month.</p>
+      <div class="card-grid">
+        <div class="card reveal">
+          <div class="card-icon">📞</div>
+          <h3>Missed Calls</h3>
+          <p>Every call that hits voicemail is a customer dialing your competitor. Most businesses miss 25–35% of their inbound calls during job hours.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">⚡</div>
+          <h3>Slow Follow-Up</h3>
+          <p>80% of customers book with whoever responds first. If your follow-up takes hours instead of seconds, you've already lost.</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">🕳️</div>
+          <h3>Invisible Gaps</h3>
+          <p>No-shows, unasked reviews, dead customer lists — small leaks that quietly add up to thousands every month.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <div class="wrap">
+      <span class="section-tag reveal">The Process</span>
+      <h2 class="section-title reveal">Three Steps to Recovered Revenue</h2>
+      <p class="section-sub reveal">No long sales cycle. No confusing tech rollout. Just a clear path from leak to fix.</p>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">1</div>
+          <h3>Discovery</h3>
+          <p>We sit down for 15 minutes and learn how your business runs. No pitch — just honest questions about where customers come in and where they might be slipping through.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">2</div>
+          <h3>The Deep Dive</h3>
+          <p>We analyze your operation and put a dollar figure on every gap. You see exactly what's leaking, how much it's costing, and what it looks like fixed.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-num">3</div>
+          <h3>The Fix</h3>
+          <p>We install a system that plugs the leaks and runs in the background. You don't lift a finger — you just see more booked jobs and a weekly report showing what was recovered.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section" id="results">
+    <div class="wrap">
+      <span class="section-tag reveal">Results</span>
+      <h2 class="section-title reveal">The Numbers Speak</h2>
+      <p class="section-sub reveal">Directional figures based on the businesses we've analyzed so far.</p>
+      <div class="metrics">
+        <div class="metric reveal">
+          <div class="metric-num" data-target="2400000" data-prefix="$" data-suffix="+" data-format="compact">$0</div>
+          <div class="metric-label">Revenue identified for local businesses</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-num" data-target="180" data-suffix="+">0</div>
+          <div class="metric-label">Businesses analyzed</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-num" data-static="24/7">24/7</div>
+          <div class="metric-label">Your system never sleeps</div>
+        </div>
+        <div class="metric reveal">
+          <div class="metric-num" data-static="&lt; 30 days">&lt; 30 days</div>
+          <div class="metric-label">From discovery to live system</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section" id="industries">
+    <div class="wrap">
+      <span class="section-tag reveal">Who We Work With</span>
+      <h2 class="section-title reveal">We Work With Businesses Like Yours</h2>
+      <p class="section-sub reveal">If customers call, book, or walk in — there's a leak we can find.</p>
+      <div class="industry-grid">
+        <div class="industry-card reveal"><h4>Plumbing</h4><p>Stop losing emergency calls to competitors.</p></div>
+        <div class="industry-card reveal"><h4>HVAC</h4><p>Catch every after-hours breakdown call.</p></div>
+        <div class="industry-card reveal"><h4>Electrical</h4><p>Turn quote requests into booked jobs faster.</p></div>
+        <div class="industry-card reveal"><h4>Roofing</h4><p>Follow up on storm leads before they go cold.</p></div>
+        <div class="industry-card reveal"><h4>Pest Control</h4><p>Never miss a recurring service renewal.</p></div>
+        <div class="industry-card reveal"><h4>Landscaping</h4><p>Fill your schedule before the season shifts.</p></div>
+        <div class="industry-card reveal"><h4>Painting</h4><p>Respond to estimate requests in seconds, not days.</p></div>
+        <div class="industry-card reveal"><h4>Gyms &amp; Fitness</h4><p>Recover trial members who went quiet.</p></div>
+        <div class="industry-card reveal"><h4>Med Spas</h4><p>Fill cancellations before the slot goes empty.</p></div>
+        <div class="industry-card reveal"><h4>Dental</h4><p>Cut no-shows with automatic reminders.</p></div>
+        <div class="industry-card reveal"><h4>Auto Repair</h4><p>Turn missed calls into booked bays.</p></div>
+        <div class="industry-card reveal"><h4>Law Firms</h4><p>Respond to intakes before they call the next firm.</p></div>
+        <div class="industry-card reveal"><h4>Real Estate</h4><p>Never let a lead go cold overnight.</p></div>
+        <div class="industry-card reveal"><h4>And More</h4><p>If revenue depends on response time, we can help.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENT -->
+  <section class="section" id="different">
+    <div class="wrap">
+      <span class="section-tag reveal">Why Us</span>
+      <h2 class="section-title reveal">Not Another Marketing Agency</h2>
+      <p class="section-sub reveal">We're not here to sell you more leads. We're here to make sure the ones you already have don't slip away.</p>
+      <div class="diff-grid">
+        <div class="diff-col no reveal">
+          <span class="diff-label">What Others Do</span>
+          <p>Most agencies sell you ads to bring in MORE leads. We recover the revenue you're already losing from the leads you already have.</p>
+        </div>
+        <div class="diff-col yes reveal">
+          <span class="diff-label">What We Do</span>
+          <p>We don't generate leads — we catch the ones falling through the cracks. Your phone is already ringing. We make sure every ring turns into revenue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / OWNER -->
+  <section class="section" id="about">
+    <div class="wrap owner">
+      <div class="owner-badge reveal">🏗️</div>
+      <span class="section-tag reveal">About Us</span>
+      <h2 class="section-title reveal">Built by Operators, Not Consultants</h2>
+      <p class="reveal">Bedrock AI was built by people who understand small business operations — not by consultants who've never answered a customer call. We've studied hundreds of local businesses and found the same patterns: money leaking out through gaps the owner can't see from the inside. We exist to make those gaps visible and fix them.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <span class="section-tag reveal">FAQ</span>
+      <h2 class="section-title reveal">Questions, Answered</h2>
+      <p class="section-sub reveal">Everything you'd want to know before you book a call.</p>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q">What does the discovery call cost?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Nothing. It's 15 minutes, no pitch, no obligation. We ask questions about your business and tell you straight whether there's something worth fixing.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">How long until I see results?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Most businesses have a live system within 30 days of starting. Many see recovered revenue in the first week.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">Do I need to be technical?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">Not even a little. You run your business — we handle everything behind the scenes. You just see booked jobs and a weekly report.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">What does it cost?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">It depends on what we find. We price based on what we recover for you — our fee is always a fraction of the revenue we bring back. We'll show you the exact numbers before you commit to anything.</div></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q">What if it doesn't work?<span class="faq-icon">+</span></button>
+          <div class="faq-a"><div class="faq-a-inner">We start with a paid deep-dive where we verify everything before building. If we can't deliver, we tell you upfront — we don't build systems that won't produce results.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-box reveal">
+      <h2>Ready to See What You're Missing?</h2>
+      <p>15 minutes. No pitch. Just an honest look at where your business stands.</p>
+      <a href="https://cal.com/gage-dorris-7eacni/free-revenue-audit" target="_blank" rel="noopener" class="btn btn-primary btn-lg">Book Your Free Discovery Call</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a href="#top" class="logo"><span class="dot"></span>Bedrock AI</a>
+      <a href="mailto:gage@getbedrockai.com">gage@getbedrockai.com</a>
+    </div>
+    <div class="footer-links">
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Bedrock AI. All rights reserved.</div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('active');
+  });
+  document.querySelectorAll('.mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        if(openItem !== item){
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        item.classList.remove('open');
+        a.style.maxHeight = null;
+      }else{
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Stagger reveal within card grids for a nicer cascade
+  document.querySelectorAll('.card-grid, .steps, .metrics, .industry-grid, .faq-list').forEach(group => {
+    [...group.children].forEach((child, i) => {
+      child.style.transitionDelay = (i * 80) + 'ms';
+    });
+  });
+
+  // Count-up numbers
+  function formatCompact(num){
+    if(num >= 1000000) return (num/1000000).toFixed(1).replace(/\.0$/,'') + 'M';
+    if(num >= 1000) return (num/1000).toFixed(0) + 'K';
+    return num.toString();
+  }
+
+  function animateCount(el){
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const isCompact = el.dataset.format === 'compact';
+    const duration = 1800;
+    const start = performance.now();
+
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      const display = isCompact ? formatCompact(current) : Math.floor(current).toLocaleString();
+      el.textContent = prefix + display + suffix;
+      if(progress < 1){
+        requestAnimationFrame(tick);
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && entry.target.dataset.target){
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.metric-num[data-target]').forEach(el => countObserver.observe(el));
+
+  // Header background intensifies on scroll
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 20){
+      header.style.background = 'rgba(10,22,40,0.92)';
+    }else{
+      header.style.background = 'rgba(10,22,40,0.7)';
+    }
+  });
+</script>
+
+</body>
+</html>
